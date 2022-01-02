@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  font-family: 'NanumSquare';
+}
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('../static/fonts/NanumSquare_acR.ttf') format('truetype');
+}
+body {
+  background-image: url('../static/logos/background_home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'NanumSquare';
+}
+
+.logo {
+  width: 200px;
+  height: 80px;
+  margin-left: 20px;
+  margin-top: 20px;
+}

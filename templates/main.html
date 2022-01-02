@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/main.css?0aftrsas">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<a href="/main"><img class="logo" src="../static/logos/new_logo.png"/></a>
+		<h3 class="title">"물고기는 어떤 상태인가요?"</h3>
+		<div class="buttons">
+			<button class="fish">싱싱한 활어</button>
+			<button class="sushi">맛있는 회</button>
+		</div>
+	</div>
+	<script>
+		const fish_btn = document.querySelector('.fish');
+		const sushi_btn = document.querySelector('.sushi');
+		fish_btn.addEventListener('click', () => {
+			location.href = '/fish';
+		});
+		sushi_btn.addEventListener('click', () => {
+			location.href = '/sushi';
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+}
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('../static/fonts/NanumSquare_acR.ttf') format('truetype');
+}
+body {
+  background-image: url('../static/logos/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'NanumSquare';
+  letter-spacing: 4px;
+}
+.title {
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.logo {
+  width: 200px;
+  height: 80px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.container {
+  /* height : 800px; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* align-items: center; */
+}
+.detail_container {
+  margin-top: 50px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.fish_info, .recipe, .media, .colabo{
+  margin-left: 20px;
+  margin-top: 50px;
+  color: white;
+  font-size: 30px;
+}
+.fish_info_detail {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+}
+.fish_info_detail_img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.detail_container > p{
+  color: white;
+  margin-left: 20px;
+}
+.result_img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 640px;
+  height: 480px;
+}
+
+.result_text {
+  color: white;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.retry {
+  margin-left: auto;
+  margin-right: auto;
+}
+.retry_btn {
+  width: 300px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.buttons > a > button {
+  background-color: white;
+  color: black;
+  width: 300px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin-top: 30px;
+  margin-left: 0px;
+  padding: 0;
+}
+ul > li {
+  margin-right: 20px;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ul > li > img {
+  width: 100px;
+  height: 100px;
+}
+ul > li  > span {
+  font-size: 20px;
+  margin-top: 10px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/ce3a77d8ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/fish.css?afd2ter">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <a href="/"><img class="logo" src="../static/logos/new_logo.png"/></a>
+    <h3 class="title">"활어 전체를 꽉차게 촬영해주세요!"</h3>
+    <img id="img" src="{{ url_for('video') }}"/>
+    <div class="buttons">
+      <button id="capture" name="capture">촬영하기</button>
+      <button id='video'>다시 찍기</button>
+    </div>
+  </div>
+  <script>
+    const capture_button = document.getElementById('capture');
+    const video_button = document.getElementById('video');
+    const img = document.getElementById('img');
+    const capture_img = '';
+    capture_button.addEventListener('click', async () => {
+      if(capture_button.name === 'capture') {
+        await axios.get('/capture')
+        .then((res) => {
+          img.src = `../static/images/${res.data}`
+          img.attributes['src'].value += "?a=" + Math.random();
+        })
+        .catch(err => console.log(err));
+        capture_button.name = 'send';
+        capture_button.innerText = '결과확인';
+      }
+      // 결과 페이지로
+      else if(capture_button.name === 'send') {
+        location.href = '/result/fish';
+      }
+        
+    });
+    video_button.addEventListener('click',  () => {
+      img.src = 'video';
+      capture_button.name = 'capture';
+      capture_button.innerText = '캡쳐';
+    });
+
+  </script>
+</body>
+
+</html>

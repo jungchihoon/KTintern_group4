@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/ce3a77d8ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/result.css?after">
+  <title>결과</title>
+</head>
+<body>
+  <div class="container">
+    <a href="/main"><img class="logo" src="../static/logos/new_logo.png"/></a>
+    <img class="result_img" src="../static/images/sushi/{{fish}}_result_pic.jpg" />
+    {% if fish == 'None' %}
+    <h3 class="result_text">"인식된 어종이 없습니다"</h3>
+    <a href="/sushi" class="retry"><button class="retry_btn">다시하기</button></a>
+    {% else %}
+    <div class="detail_container">
+      <div class="fish_info">
+        <h3>어종 정보</h3>
+        <div class="fish_info_detail">
+          <img class="fish_info_detail_img" src="../static/class/fish_{{detail.get('name')}}.png" />
+          <div class="fish_info_detail_text">
+            <h3 style="color: bisque;">{{detail.get('name')}}</h3>
+            <br />
+            <p>{{detail.get('detail_feature')}}</p>
+            <br />
+            <p><span style="font-weight: bold; color: bisque;">제철  </span> {{detail.get('info_period')}}</p>
+            <br />
+            <p><span style="font-weight: bold; color: bisque;">보관방법  </span> {{detail.get('detail_store')}}</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="colabo">
+        <h3>어울리는 조합</h3>
+        <ul class="colabo_list"></ul>
+      </div>
+      <div class="media">
+        <h3>미디어 검색하기</h3>
+        <div class="buttons">
+          <a href="https://www.youtube.com/search?q={{detail.get('name')}}"><button>Youtube 검색</button></a>
+          <a href="https://www.google.com/search?q={{detail.get('name')}}"><button>Google 검색</button></a>
+          <a href="https://www.google.com/search?q={{detail.get('name')}} 시세"><button>시세 정보</button></a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <img />
+  <script>
+    let imgs = [];
+    const img_path = `../static/paring/paring_{{detail.get('name')}}`;
+    const colabo = "{{detail.get('detail_paring')}}";
+    let colabo_list = colabo.split(',');
+    colabo_list = colabo_list.map(v => v.replace(' ',''));
+    colabo_list.forEach(v => imgs.push(`${img_path}/${v}.png`));
+    const colabo_list_btn = document.querySelector('.colabo_list');
+    if(colabo_list_btn) {
+      imgs.forEach((v, i) => {
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        const text = document.createElement('span');
+        img.setAttribute('src', v);
+        text.innerText = colabo_list[i];
+        li.appendChild(img);
+        li.appendChild(text);
+        colabo_list_btn.appendChild(li);
+      });
+    }
+    console.log(img_path);
+    console.log(colabo_list);
+    console.log(imgs);
+  </script>
+</body>
+</html>

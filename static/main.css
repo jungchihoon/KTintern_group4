@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  font-family: 'NanumSquare';
+}
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('../static/fonts/NanumSquare_acR.ttf') format('truetype');
+}
+body {
+  background-image: url('../static/logos/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'NanumSquare';
+}
+.logo {
+  width: 200px;
+  height: 80px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.container {
+  /* background-image: url('../static/logos/Frame21.png'); */
+  height : 800px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-repeat: no-repeat;
+  background-size: contain; */
+}
+
+.container .title {
+  color: white;
+  font-size: 40px;
+  letter-spacing: 5px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container .buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .buttons > button {
+  width: 300px;
+  height: 80px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  /* font-family: 'NanumSquare'; */
+}

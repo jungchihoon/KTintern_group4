@@ -18,8 +18,8 @@ body {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .logo {
-  width: 200px;
-  height: 80px;
+  width: 300px;
+  height: 150px;
   margin-left: 20px;
   margin-top: 20px;
 }
@@ -52,7 +52,7 @@ body {
   width: 200px;
   height: 200px;
   object-fit: contain;
-  margin-right: 20px;
+  margin-right: 100px;
 }
 
 .detail_container > p{
@@ -62,7 +62,7 @@ body {
 .result_img {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 640px;
   height: 480px;
 }
@@ -76,6 +76,13 @@ body {
   letter-spacing: 5px;
 }
 
+.prediction {
+  color: white;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
 .retry {
   margin-left: auto;
   margin-right: auto;

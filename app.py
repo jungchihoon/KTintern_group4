@@ -63,7 +63,7 @@ def capture():
 
 @app.route('/result/fish')
 def result_fish():
-  fish = detectModel('fish')
+  fish, prediction = detectModel('fish')
   ### 해당 어종 페이지로 접근하기 ###
   # fish = 'cham'
   ### 
@@ -78,11 +78,11 @@ def result_fish():
       if data[i]['id'] == fish:
         detail_info = data[i]
     
-  return render_template('result_fish.html', fish = fish, detail = detail_info)
+  return render_template('result_fish.html', fish = fish, detail = detail_info, prediction = prediction)
 
 @app.route('/result/sushi')
 def result_sushi():
-  fish = detectModel('sushi')
+  fish, prediction = detectModel('sushi')
   print(fish)
   ###
   # fish = 'yeon'
@@ -95,6 +95,6 @@ def result_sushi():
     for i in range(len(data)):
       if data[i]['id'] == fish:
         detail_info = data[i]
-  return render_template('result_sushi.html', fish = fish, detail = detail_info)
+  return render_template('result_sushi.html', fish = fish, detail = detail_info, prediction = prediction)
 if __name__ == '__main__':
   app.run(debug=True)

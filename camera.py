@@ -9,7 +9,7 @@ now_img = ''
 
 class Video(object):
   def __init__(self, type):
-    self.video = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
+    self.video = cv2.VideoCapture(1 + cv2.CAP_DSHOW)
     if not self.video.isOpened():
       print('웹캠을 열 수 없습니다.')
       exit()

@@ -6,13 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/ce3a77d8ba.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../static/result.css?after">
+  <link rel="stylesheet" href="../static/result.css?after43">
   <title>결과</title>
 </head>
 <body>
+  <a href="/main"><img class="logo" src="../static/logos/new_logo.png"/></a>
   <div class="container">
-    <a href="/main"><img class="logo" src="../static/logos/new_logo.png"/></a>
     <!-- <img class="result_img" src="../static/class/{{prediction}}.jpg"/> -->
+    {% if fish != 'None' %}
+    <h3 class="result_text" style="font-size: 40px;">"싱싱한 {{detail.get('name')}}을(를) 찍으셨네요!"</h3>
+    <p class="prediction">[확률: {{prediction}}%]</p>
+    {% endif %}
     <img class="result_img" src="../static/images/fish/{{fish}}_result_pic.jpg" />
     {% if fish == 'None' %}
       <h3 class="result_text">"인식된 어종이 없습니다"</h3>
@@ -28,15 +32,17 @@
               <h3 style="color: bisque;">{{detail.get('name')}}</h3>
               <br />
               <p>{{detail.get('detail_feature')}}</p>
-              <br />
-              <p><span style="font-weight: bold; color: bisque;">제철  </span> {{detail.get('info_period')}}</p>
-              <br />
-              <p><span style="font-weight: bold; color: bisque;">구입요령  </span>{{detail.get('detail_shape')}}</p>
-              <br />
-              <p><span style="font-weight: bold; color: bisque;">보관방법  </span> {{detail.get('detail_store')}}</p>
-              <br />
             </div>
           </div>
+        </div>
+        <div class="fish_info">
+          <br />
+          <p><span style="font-weight: bold; color: bisque;">제철  </span> {{detail.get('info_period')}}</p>
+          <br />
+          <p><span style="font-weight: bold; color: bisque;">구입요령  </span>{{detail.get('detail_shape')}}</p>
+          <br />
+          <p><span style="font-weight: bold; color: bisque;">보관방법  </span> {{detail.get('detail_store')}}</p>
+          <br />
         </div>
         <div class="recipe">
           <h3>레시피 정보</h3>
@@ -62,6 +68,9 @@
   </div>
   <img />
   <script>
+    // 캐시로 이전 사진 불러오는 문제 해결
+    const img_tag = document.querySelector('.result_img');
+    img_tag.attributes['src'].value += '?a=' + Math.random();
     console.log('{{detail}}')
   </script>
 </body>

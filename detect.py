@@ -4,10 +4,11 @@ from camera import *
 
 ### 현재 분류할 수 있는 클래스들과 모델리스트를 저장해놓음 ###
 fish_classes = [['godeungeo'],['chamdom'],['gwangeo'],['wooruck']]
-sushi_classes = [['doldom'],['jeonbok'],['yeoneo']]
+sushi_classes = [['doldom'],['jeonbok'],['yeoneo'],['bangeo']]
 fish_model_list = ["models/fish/godeungeo.weights",
   "models/fish/chamdom.weights", "models/fish/gwangeo.weights","models/fish/wooruck.weights"]
-sushi_model_list = ["models/sushi/doldom.weights", "models/sushi/jeonbok.weights", "models/sushi/yeoneo.weights"]
+sushi_model_list = ["models/sushi/doldom.weights", "models/sushi/jeonbok.weights", "models/sushi/yeoneo.weights",
+"models/sushi/bangeo.weights"]
 ###########################################################
 
 
@@ -35,9 +36,7 @@ def detectModel(type):
     output_layers = [layer_names[l-1] for l in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
     min_confidence = 0.5
-    # img = cv2.resize(frame, None, fx=0.4, fy=0.4)
     img = cv2.resize(frame,None,fx=1, fy=1)
-    # img = frame
     height, width, channels = img.shape
     blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
     net.setInput(blob)

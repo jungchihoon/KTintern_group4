@@ -85,7 +85,7 @@ def result_sushi():
   fish, prediction = detectModel('sushi')
   print(fish)
   ###
-  # fish = 'yeon'
+  # fish = 'gwangeo'
   ###
 
   # 해당 어종에 대한 정보 불러오기

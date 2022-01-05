@@ -37,6 +37,8 @@
       }
       // 결과 페이지로
       else if(capture_button.name === 'send') {
+        capture_button.style.cursor = 'wait';
+        capture_button.innerText = '결과 확인중'
         location.href = '/result/fish';
       }
         

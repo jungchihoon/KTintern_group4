@@ -38,6 +38,8 @@
       }
       // 결과 확인 페이지로 가는 로직
       else if(capture_button.name === 'send') {
+        capture_button.style.cursor = 'wait';
+        capture_button.innerText = '결과 확인중'
         location.href = '/result/sushi';
       }    
     });

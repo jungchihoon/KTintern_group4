@@ -4,10 +4,10 @@ from camera import *
 
 ### 현재 분류할 수 있는 클래스들과 모델리스트를 저장해놓음 ###
 fish_classes = [['godeungeo'],['chamdom'],['gwangeo'],['wooruck']]
-sushi_classes = [['doldom'],['jeonbok'],['yeoneo'],['bangeo']]
+sushi_classes = [['chamdom'],['jeonbok'],['yeoneo'],['bangeo']]
 fish_model_list = ["models/fish/godeungeo.weights",
   "models/fish/chamdom.weights", "models/fish/gwangeo.weights","models/fish/wooruck.weights"]
-sushi_model_list = ["models/sushi/doldom.weights", "models/sushi/jeonbok.weights", "models/sushi/yeoneo.weights",
+sushi_model_list = ["models/sushi/chamdom.weights", "models/sushi/jeonbok.weights", "models/sushi/yeoneo.weights",
 "models/sushi/bangeo.weights"]
 ###########################################################
 

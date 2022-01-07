@@ -15,7 +15,8 @@ def index():
 @app.route('/main')
 def main():
   return render_template('main.html')
-  
+
+# 물고기 촬영 화면
 @app.route('/fish')
 def fish():
   return render_template('fish.html')
@@ -34,6 +35,7 @@ def gen(camera, type):
     yield (b'--frame\r\n'
         b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
+# 회 촬영 화면
 @app.route('/sushi')
 def sushi():
   return render_template('sushi.html')
@@ -63,12 +65,8 @@ def capture():
 
 @app.route('/result/fish')
 def result_fish():
+  # 물고기 촬영 사진을 모델에 넣어 결과와 정확도를 받아옴
   fish, prediction = detectModel('fish')
-  ### 해당 어종 페이지로 접근하기 ###
-  # fish = 'cham'
-  ### 
-  # ret, jpg = cv2.imencode('.jpg', result)
-  # cv2.imwrite('./static/images/fish/' + fish + '_result_pic' + '.jpg', result)
   print(fish)
   # 해당 어종에 대한 정보 불러오기
   with open('fish_data.json', 'r', encoding='UTF-8') as fish_data:
@@ -82,11 +80,9 @@ def result_fish():
 
 @app.route('/result/sushi')
 def result_sushi():
+  # 회 촬영 사진을 모델에 넣어 결과와 정확도를 받아옴
   fish, prediction = detectModel('sushi')
   print(fish)
-  ###
-  # fish = 'gwangeo'
-  ###
 
   # 해당 어종에 대한 정보 불러오기
   with open('fish_data.json', 'r', encoding='UTF-8') as fish_data:

@@ -45,7 +45,7 @@ def detectModel(type):
     class_ids = []
     confidences = []
     boxes = []
-    print(class_ids, confidences, boxes)
+
     for out in outs:
       for detection in out:
         scores = detection[5:]
@@ -78,16 +78,15 @@ def detectModel(type):
         label = f"{fish} {confidences[i]:.2f}"
         print(label)
         confidence_list_temp.append(confidences[i] * 100)
-        # confidence_list[m] = confidences[i] * 100
         color = colors[0]
         cv2.rectangle(img, (x, y), (x + w, y + h), color, 1)
         cv2.rectangle(img, (x-1, y), (x + len(label) * 13 + 65, y - 25), color, -1)
         cv2.putText(img, label, (x, y - 8), font, 1, (0, 255, 0), 1)
+    # 모델에 넣은 결과가 반영된 사진을 저장. 만약 객체 인식이 되었으면 네모 박스가 처진 상태로 저장된다.
     cv2.imwrite('./static/images/'+ type + '/' + fish + '_result_pic' + '.jpg', img)
+    # 하나의 사진에서 여러개의 객체가 인식된 경우 가장 높은 confidence를 기준으로 한다.(같은 물고기 여러개 인식된 경우)
     if len(confidence_list_temp) != 0:
-      # print(confidence_list_temp)
       confidence_list[m] = max(confidence_list_temp)
-      # print("confidence_list : ", confidence_list[m])
   # 가장 확률 높은 fish 찾기
   best_confidence = max(confidence_list)
   index = confidence_list.index(best_confidence)

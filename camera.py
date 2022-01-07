@@ -9,7 +9,8 @@ now_img = ''
 
 class Video(object):
   def __init__(self, type):
-    self.video = cv2.VideoCapture(1 + cv2.CAP_DSHOW)
+    # 노트북 캠 = 0, 웹캠 연결시 = 1
+    self.video = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
     if not self.video.isOpened():
       print('웹캠을 열 수 없습니다.')
       exit()
@@ -35,10 +36,10 @@ def get_now_frame():
   ret, jpg = cv2.imencode('.jpg', frame)
   global count, now_img
   count = count + 1
+  # 캡처한 사진 저장
   cv2.imwrite('./static/images/' + 'captured_pic' + str(count) +  '.jpg', frame)
   now_img = 'captured_pic' + str(count) + '.jpg'
   return 'captured_pic'+str(count)+'.jpg'
-  # return jpg.tobytes()
 
 def get_now_jpg():
   return now_img
